@@ -6,9 +6,9 @@ import nextstep.subway.application.dto.LineCreateRequest;
 import nextstep.subway.application.dto.LineResponse;
 import nextstep.subway.application.dto.LineUpdateRequest;
 import nextstep.subway.application.dto.SectionCreateRequest;
-import nextstep.subway.domain.BusinessException;
-import nextstep.subway.domain.Line;
-import nextstep.subway.domain.LineRepository;
+import nextstep.subway.domain.exception.BusinessException;
+import nextstep.subway.domain.entity.Line;
+import nextstep.subway.domain.service.LineRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
-public class LineService { // usecase
+public class LineService {
 
     private LineRepository lineRepository;
     private StationService stationService;

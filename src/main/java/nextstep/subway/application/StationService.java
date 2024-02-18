@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import nextstep.subway.application.dto.StationRequest;
 import nextstep.subway.application.dto.StationResponse;
-import nextstep.subway.domain.Station;
-import nextstep.subway.domain.StationRepository;
+import nextstep.subway.domain.entity.Station;
+import nextstep.subway.domain.service.StationRepository;
 
 import java.util.List;
 import java.util.Optional;

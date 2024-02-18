@@ -1,7 +1,7 @@
 package nextstep.subway.application.dto;
 
 import lombok.Getter;
-import nextstep.subway.domain.Line;
+import nextstep.subway.domain.entity.Line;
 
 @Getter
 public class LineCreateRequest {

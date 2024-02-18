@@ -1,4 +1,4 @@
-package nextstep.subway.domain;
+package nextstep.subway.domain.entity;
 
 import javax.persistence.*;
 
@@ -35,7 +35,7 @@ public class Section {
         return id;
     }
 
-    public Station getUpStationId() {
+    public Station getUpStation() {
         return upStation;
     }
 

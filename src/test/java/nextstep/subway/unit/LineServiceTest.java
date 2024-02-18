@@ -2,10 +2,10 @@ package nextstep.subway.unit;
 
 import nextstep.subway.application.LineService;
 import nextstep.subway.application.dto.SectionCreateRequest;
-import nextstep.subway.domain.Line;
-import nextstep.subway.domain.LineRepository;
-import nextstep.subway.domain.Station;
-import nextstep.subway.domain.StationRepository;
+import nextstep.subway.domain.entity.Line;
+import nextstep.subway.domain.service.LineRepository;
+import nextstep.subway.domain.entity.Station;
+import nextstep.subway.domain.service.StationRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

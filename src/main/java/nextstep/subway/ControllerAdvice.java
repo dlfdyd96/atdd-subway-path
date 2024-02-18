@@ -3,7 +3,7 @@ package nextstep.subway;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import nextstep.subway.domain.BusinessException;
+import nextstep.subway.domain.exception.BusinessException;
 
 @RestControllerAdvice
 public class ControllerAdvice {
