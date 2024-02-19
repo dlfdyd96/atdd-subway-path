@@ -3,14 +3,14 @@ package nextstep.subway.acceptance;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import nextstep.subway.application.dto.LineResponse;
 import nextstep.subway.application.dto.StationResponse;
 import nextstep.subway.fixture.LineFixture;
 import nextstep.subway.fixture.StationFixture;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -87,6 +87,41 @@ public class SectionAcceptanceTest extends AcceptanceTest {
 
         // then
         assertThat(response.statusCode()).isEqualTo(HttpStatus.BAD_REQUEST.value());
+    }
+
+    @DisplayName("노선에 역 추가시 노선 가운데 추가 할 수 있다.")
+    @Test
+    void createSectionWithMiddleStation() {
+        // given
+        Long 강남역 = 지하철역_생성_요청("강남역");
+        Long 역삼역 = 지하철역_생성_요청("역삼역");
+        Long 선릉역 = 지하철역_생성_요청("선릉역");
+
+        Long 이호선 = 지하철노선_생성_요청(강남역, 선릉역);
+
+        // when
+        ExtractableResponse<Response> response = 지하철구간_생성_요청(강남역, 역삼역, 이호선);
+
+        // then
+        assertThat(response.statusCode()).isEqualTo(HttpStatus.CREATED.value());
+    }
+
+    @DisplayName("노선에 역 추가시 노선 처음에 추가 할 수 있다.")
+    @Test
+    void createSectionWithFirstStation() {
+        // given
+        Long 강남역 = 지하철역_생성_요청("강남역");
+        Long 역삼역 = 지하철역_생성_요청("역삼역");
+        Long 선릉역 = 지하철역_생성_요청("선릉역");
+        Long 삼성역 = 지하철역_생성_요청("삼성역");
+
+        Long 이호선 = 지하철노선_생성_요청(삼성역, 선릉역);
+
+        // when
+        ExtractableResponse<Response> response = 지하철구간_생성_요청(강남역, 삼성역, 이호선);
+
+        // then
+        assertThat(response.statusCode()).isEqualTo(HttpStatus.CREATED.value());
     }
 
     /**
